@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import style from "./contacts.module.css";
 import { v4 as uuidv4 } from "uuid";
-import { connect } from "react-redux";
-import action from "../redux/action";
 
 export default function Form({ handleSubmit }) {
   const [name, setName] = useState("");
@@ -11,10 +9,6 @@ export default function Form({ handleSubmit }) {
 
   const inputNameId = uuidv4();
   const inputNumberId = uuidv4();
-  const mapDispatchToProps = (dispatch) => ({
-    addNewContact: (name, number) =>
-      dispatch(action.addNewContact(name, number)),
-  });
 
   const handleChangeInput = (e) => {
     if (e.target.name === "name") {
