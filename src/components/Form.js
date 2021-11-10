@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import style from "./contacts.module.css";
 import { v4 as uuidv4 } from "uuid";
+import { connect } from "react-redux";
 
 export default function Form({ handleSubmit }) {
   const [name, setName] = useState("");
