@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import style from "./contacts.module.css";
 
 import { connect } from 'react-redux';
-import { changeFilter } from '../redux/actions';
+import { changeFilter } from '../redux/action';
 
 function Filter({handleChange}) {
   return (

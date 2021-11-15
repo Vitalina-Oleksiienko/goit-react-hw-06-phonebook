@@ -4,7 +4,7 @@ import style from "./contacts.module.css";
 import { v4 as uuidv4 } from "uuid";
 
 import { connect } from 'react-redux';
-import { contactSubmit } from '../redux/actions';
+import { contactSubmit } from '../redux/action';
 
 function Form({handleSubmit}) {
   const [name, setName] = useState("");
