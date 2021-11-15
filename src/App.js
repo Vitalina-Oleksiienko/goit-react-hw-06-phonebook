@@ -11,9 +11,8 @@ export default function App() {
     const contact = localStorage.getItem("contacts");
     if (contact) {
       return JSON.parse(contact);
-    } else {
-      return [];
     }
+    else { return [];}
   });
   const [filter, setFilter] = useState([]);
 
@@ -23,7 +22,7 @@ export default function App() {
 
   const handleSubmit = (name, number) => {
     if (!contacts.find((el) => el.name === name)) {
-      setContacts((prev) => [...prev, { name, number, id: uuidv4() }]);
+      setContacts(prev => [...prev, { name, number, id: uuidv4() }]);
     } else {
       alert(`${name} is already in contacts`);
     }
@@ -48,17 +47,21 @@ export default function App() {
   };
 
   const handleDelete = (e) => {
-    setContacts((prev) => prev.filter((elem) => elem.id !== e.target.id));
+    setContacts(prev => prev.filter((elem) => elem.id !== e.target.id));
   };
 
   return (
-    <div className="App">
-      <h1 className={style.title}>Phonebook</h1>
-      <Form handleSubmit={handleSubmit} />
+      <div className="App">
+        <h1 className={style.title}>Phonebook</h1>
+        <Form handleSubmit={handleSubmit} />
 
-      <h2 className={style.title}>Contacts</h2>
-      <Filter handleChange={handleChange} />
-      <ContactList contacts={handleFilter()} handleDelete={handleDelete} />
-    </div>
-  );
+        <h2 className={style.title}>Contacts</h2>
+        <Filter handleChange={handleChange} />
+        <ContactList
+          contacts={handleFilter()}
+          handleDelete={handleDelete}
+        />
+      </div>
+    );
 }
+
